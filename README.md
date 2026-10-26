@@ -256,3 +256,7 @@ Installed, trusted, and enabled on the EC2 gateway; verified end-to-end with a r
 - `gh` recognizes the account and lists repos and open PRs.
 - Reviewing a PR: builds the prompt from a real diff → runs the `pr-reviewer` agent → returns 2 findings (`request_changes`) pointing to the exact file and standards section.
 - Successfully posted a comment to the PR on GitHub.
+
+## License
+
+Released under the [MIT License](LICENSE).
