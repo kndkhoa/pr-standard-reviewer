@@ -1,0 +1,76 @@
+{
+  "name": "pr-standard-reviewer",
+  "version": "0.1.0",
+  "displayName": "PR Standard Reviewer",
+  "description": "Reviews GitHub pull requests against your own coding standards. Pick a repo, select one or many open PRs, and get a prioritized findings report that references the exact section of your standards docs, explains why each finding matters, and tells you how to fix it. Findings are driven by a knowledge base and review skills you upload and edit inside the app, and you can push the results back as a PR comment.",
+  "author": "khoaknd",
+  "license": "MIT",
+  "tags": [
+    "code-review",
+    "pull-request",
+    "github",
+    "developer-tools",
+    "standards"
+  ],
+  "highlights": [
+    "Pick a repo and batch-review many open PRs at once",
+    "Findings ranked by priority: must-fix, should-fix, nice-to-have",
+    "Every finding references the exact section of your standards docs",
+    "Review logic driven by a knowledge base and skills you upload and edit in-app",
+    "Push the review back to the pull request as a comment when you are ready"
+  ],
+  "useCases": [
+    "Enforce a team coding standard on every pull request before merge",
+    "Triage a backlog of open PRs by reviewing several at once and sorting by priority"
+  ],
+  "configuration": [
+    "Make sure the gateway host has an authenticated GitHub CLI (run: gh auth login)",
+    "Open PR Standard Reviewer, add a repo, then upload your standards docs under Knowledge Base",
+    "Select one or more open pull requests and click Review"
+  ],
+  "defaultEnabled": false,
+  "iconPath": "assets/icon.png",
+  "agents": [
+    "agents/pr-reviewer.json"
+  ],
+  "skills": [
+    "skills/pr-review"
+  ],
+  "ui": {
+    "entry": "dist/index.mjs",
+    "pages": [
+      {
+        "route": "/pr-standard-reviewer",
+        "label": "PR Standard Reviewer",
+        "icon": "ScanSearch"
+      }
+    ]
+  },
+  "backend": {
+    "entryPoint": "backend/server.py",
+    "type": "python",
+    "port": "auto",
+    "healthCheck": "/health"
+  },
+  "permissions": {
+    "api": [
+      "/apps/pr-standard-reviewer",
+      "/apps/pr-standard-reviewer/*",
+      "/api/chat"
+    ],
+    "events": [
+      "notification"
+    ],
+    "storage": true,
+    "network": true
+  },
+  "dependencies": {
+    "commands": [
+      "gh",
+      "git"
+    ]
+  },
+  "platform": {
+    "os": ["macos", "linux"]
+  }
+}

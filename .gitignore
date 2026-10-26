@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+
+# Python
+__pycache__/
+*.pyc
+
+# App runtime data (contains PAT, config, review history — never commit)
+data/
+
+# OS
+.DS_Store
+
+# Logs
+*.log
+
+# Keep the built UI bundle (ui/dist/index.mjs) — required for the app to run.
+# The ui/.gitignore ignores dist/, so force-include the bundle.
+!ui/dist/
+!ui/dist/index.mjs

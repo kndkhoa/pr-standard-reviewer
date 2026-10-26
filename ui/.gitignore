@@ -1,0 +1,5 @@
+node_modules/
+
+# Ignore build output except the shipped bundle, which the app needs to run.
+dist/*
+!dist/index.mjs
